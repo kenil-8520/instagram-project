@@ -15,7 +15,41 @@
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
+
+        .password-toggle {
+            position: relative;
+        }
+
+        .password-toggle input[type="password"] {
+            padding-right: 28px;
+        }
+
+        .password-toggle .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 5px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("password");
+            var toggleIcon = document.getElementById("toggle-icon");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleIcon.classList.remove("fa-eye");
+                toggleIcon.classList.add("fa-eye-slash");
+            } else {
+                passwordInput.type = "password";
+                toggleIcon.classList.remove("fa-eye-slash");
+                toggleIcon.classList.add("fa-eye");
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -24,8 +58,10 @@
         {% csrf_token %}
         <label for="user">Instagram Username:</label>
         <input type="text" id="user" name="user" required><br><br>
-        <label for="password">Instagram Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
+        <label class="password-toggle" for="password">Instagram Password:</label>
+        <input type="password" id="password" name="password" required>
+        <i id="toggle-icon" class="fa fa-eye toggle-password" onclick="togglePasswordVisibility()"></i>
+        <br><br>
         <label for="target_username">Target Username:</label>
         <input type="text" id="target_username" name="target_username" required><br><br>
         <input type="submit" value="Submit">
