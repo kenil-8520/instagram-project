@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Followers Not Following</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Followers Not Following</h1>
+    <form method="post" action="{% url 'followers_not_following' %}">
+        {% csrf_token %}
+        <label for="user">Instagram Username:</label>
+        <input type="text" id="user" name="user" required><br><br>
+        <label for="password">Instagram Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <label for="target_username">Target Username:</label>
+        <input type="text" id="target_username" name="target_username" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    {% if total_users %}
+    <p>Total users not following you: {{ total_users }}</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in followers_not_following %}
+            <tr>
+                <td><a href="https://www.instagram.com/{{ user }}/">{{ user }}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</body>
+
+</html>
