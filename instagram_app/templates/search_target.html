@@ -3,22 +3,69 @@
 
 <head>
     <title>Search Target</title>
-    <!-- CSS styles here -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333333;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Search Target</h1>
-    <form method="post" action="{% url 'search_target' %}">
-        {% csrf_token %}
-        <label for="target_username">Target Username:</label>
-        <input type="text" id="target_username" name="target_username" required><br><br>
-        <input type="submit" value="Search">
-    </form>
+    <div class="container">
+        <h1>Search Target</h1>
+        <form method="post" action="{% url 'search_target' %}">
+            {% csrf_token %}
+            <label for="target_username">Target Username:</label>
+            <input type="text" id="target_username" name="target_username" required><br><br>
+            <input class="submit-btn" type="submit" value="Search">
+        </form>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-    <script>
-        // JavaScript code here
-    </script>
 </body>
 
 </html>

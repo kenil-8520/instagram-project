@@ -3,31 +3,80 @@
 
 <head>
     <title>Followers Not Following</title>
-    <!-- CSS styles here -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333333;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #cccccc;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333333;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Followers Not Following</h1>
-    <p>Total users not following you: {{ total_users }}</p>
-    <table>
-        <thead>
-            <tr>
-                <th>Username</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for user in followers_not_following %}
-            <tr>
-                <td><a href="https://www.instagram.com/{{ user }}/">{{ user }}</a></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="container">
+        <h1>Followers Not Following</h1>
+        <p>Total users not following you: {{ total_users }}</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in followers_not_following %}
+                <tr>
+                    <td><a href="https://www.instagram.com/{{ user }}/">{{ user }}</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-    <script>
-        // JavaScript code here
-    </script>
 </body>
 
 </html>
