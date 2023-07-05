@@ -3,73 +3,11 @@
 
 <head>
     <title>Followers Not Following</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        th,
-        td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .password-toggle {
-            position: relative;
-        }
-
-        .password-toggle input[type="password"] {
-            padding-right: 28px;
-        }
-
-        .password-toggle .toggle-password {
-            position: absolute;
-            top: 50%;
-            right: 5px;
-            transform: translateY(-50%);
-            cursor: pointer;
-        }
-    </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-    <script>
-        function togglePasswordVisibility() {
-            var passwordInput = document.getElementById("password");
-            var toggleIcon = document.getElementById("toggle-icon");
-
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-                toggleIcon.classList.remove("fa-eye");
-                toggleIcon.classList.add("fa-eye-slash");
-            } else {
-                passwordInput.type = "password";
-                toggleIcon.classList.remove("fa-eye-slash");
-                toggleIcon.classList.add("fa-eye");
-            }
-        }
-    </script>
+    <!-- CSS styles here -->
 </head>
 
 <body>
     <h1>Followers Not Following</h1>
-    {% if error_message %}
-    <p>{{ error_message }}</p>
-    {% endif %}
-    <form method="post" action="{% url 'followers_not_following' %}">
-        {% csrf_token %}
-        <label for="user">Instagram Username:</label>
-        <input type="text" id="user" name="user" required><br><br>
-        <label class="password-toggle" for="password">Instagram Password:</label>
-        <input type="password" id="password" name="password" required>
-        <i id="toggle-icon" class="fa fa-eye toggle-password" onclick="togglePasswordVisibility()"></i>
-        <br><br>
-        <label for="target_username">Target Username:</label>
-        <input type="text" id="target_username" name="target_username" required><br><br>
-        <input type="submit" value="Submit">
-    </form>
-
-    {% if total_users %}
     <p>Total users not following you: {{ total_users }}</p>
     <table>
         <thead>
@@ -85,7 +23,11 @@
             {% endfor %}
         </tbody>
     </table>
-    {% endif %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <script>
+        // JavaScript code here
+    </script>
 </body>
 
 </html>

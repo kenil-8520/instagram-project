@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Search Target</title>
+    <!-- CSS styles here -->
+</head>
+
+<body>
+    <h1>Search Target</h1>
+    <form method="post" action="{% url 'search_target' %}">
+        {% csrf_token %}
+        <label for="target_username">Target Username:</label>
+        <input type="text" id="target_username" name="target_username" required><br><br>
+        <input type="submit" value="Search">
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <script>
+        // JavaScript code here
+    </script>
+</body>
+
+</html>

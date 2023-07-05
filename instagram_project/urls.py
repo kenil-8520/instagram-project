@@ -22,9 +22,12 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from instagram_app.views import followers_not_following_view
+# from instagram_app.views import login_view,search_target_view
+from instagram_app import views
+
+from django.urls import path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', followers_not_following_view, name='followers_not_following'),
+    path('', views.login_view, name='login'),
+    path('search_target/', views.search_target_view, name='search_target'),
 ]
